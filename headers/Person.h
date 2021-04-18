@@ -7,6 +7,7 @@ namespace HugeBrain
 {
     struct Person
     {
+        unsigned long id;
         std::string name;
         std::string phone;
         std::string email;
