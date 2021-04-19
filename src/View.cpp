@@ -65,7 +65,7 @@ int HugeBrain::View::render(const std::vector<HugeBrain::Person> &people)
     }
     else
     {
-        std::cout << "| ";
+        std::cout << '|';
         fillColumn("Data not found.", 102);
         std::cout << "|\n";
     }
