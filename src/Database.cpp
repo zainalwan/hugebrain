@@ -93,7 +93,7 @@ std::vector<HugeBrain::Person> HugeBrain::Database::add(HugeBrain::Person
     people.push_back(new_person);
     writeFile(people);
 
-    std::cout << new_person.name << "'s was successfully saved.\n\n";
+    std::cout << new_person.name << "'s datas was successfully saved.\n\n";
 
     return people;
 }
