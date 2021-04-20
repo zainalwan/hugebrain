@@ -101,6 +101,13 @@ std::vector<HugeBrain::Person> HugeBrain::Database::add(HugeBrain::Person
 std::vector<HugeBrain::Person> HugeBrain::Database::update(HugeBrain::Person
     &new_person)
 {
+    if(new_person.id == 0)
+    {
+        std::cout << "Please give an ID.\n";
+        exit(EXIT_FAILURE);
+    }
+
+    bool person_is_found = false;
     std::vector<HugeBrain::Person> people = readFile();
     for(std::vector<HugeBrain::Person>::iterator person = people.begin(); person
         < people.end(); person++)
@@ -124,12 +131,20 @@ std::vector<HugeBrain::Person> HugeBrain::Database::update(HugeBrain::Person
             {
                 (*person).email = new_person.email;
             }
+            person_is_found = true;
             break;
         }
     }
     writeFile(people);
 
-    std::cout << new_person.name << "'s datas was successfully updated.\n\n";
+    if(person_is_found)
+    {
+        std::cout << new_person.name << "'s datas was successfully updated.\n\n";
+    }
+    else
+    {
+        std::cout << "The person doesn't exists.\n\n";
+    }
 
     return people;
 }
@@ -143,6 +158,7 @@ std::vector<HugeBrain::Person> HugeBrain::Database::remove(HugeBrain::Person
         exit(EXIT_FAILURE);
     }
 
+    bool person_is_found = false;
     std::vector<HugeBrain::Person> people = readFile();
     for(std::vector<HugeBrain::Person>::iterator person = people.begin(); person
         < people.end(); person++)
@@ -151,12 +167,20 @@ std::vector<HugeBrain::Person> HugeBrain::Database::remove(HugeBrain::Person
         {
             targeted_person.name = (*person).name;
             people.erase(person);
+            person_is_found = true;
             break;
         }
     }
     writeFile(people);
 
-    std::cout << targeted_person.name << "'s datas was successfully deleted.\n\n";
+    if(person_is_found)
+    {
+        std::cout << targeted_person.name << "'s datas was successfully deleted.\n\n";
+    }
+    else
+    {
+        std::cout << "The person doesn't exists.\n\n";
+    }
 
     return people;
 }
