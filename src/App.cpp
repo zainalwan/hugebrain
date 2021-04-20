@@ -14,13 +14,19 @@ int HugeBrain::App::run(int &argc, const char* const argv[])
     }
     
     HugeBrain::Person person;
+    person.id = 0;
     HugeBrain::Argument argument;
+    std::string temp_id_string;
     for(short i = 0; i < argc; i++)
     {
         argv_str = argv[i];
         if(argv_str.find("--id") != std::string::npos)
         {
-            person.id = std::stol(argument.getValue(argv_str));
+            temp_id_string = argument.getValue(argv_str);
+            if(temp_id_string.size() > 0)
+            {
+                person.id = std::stol(argument.getValue(argv_str));
+            }
         }
         else if(argv_str.find("--name") != std::string::npos)
         {
@@ -75,5 +81,4 @@ int HugeBrain::App::run(int &argc, const char* const argv[])
 
     HugeBrain::View view;
     return view.render(people);
-    return 0;
 }
