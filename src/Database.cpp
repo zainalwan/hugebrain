@@ -49,8 +49,7 @@ std::vector<HugeBrain::Person> HugeBrain::Database::readFile()
         temp_string = temp_string.substr(temp_string.find(',') + 2);
         person.phone = temp_string.substr(0, temp_string.find(','));
         temp_string = temp_string.substr(temp_string.find(',') + 2);
-        person.email = temp_string.substr(0, temp_string.find(','));
-        temp_string = temp_string.substr(temp_string.find(',') + 2);
+        person.email = temp_string;
         people.push_back(person);
     }
     people_datas_file.close();
