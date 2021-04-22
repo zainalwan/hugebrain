@@ -4,7 +4,7 @@
 
 ## Table of Contents
 * [Table of Contents](#table-of-contents)
-* [Introductino](#introduciton)
+* [Introduction](#introduciton)
 * [Installation](#installation)
 * [Usage](#usage)
 
