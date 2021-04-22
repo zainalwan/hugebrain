@@ -1,4 +1,6 @@
-![Huge Brain](assets/img/logo.png)
+<p align="center">
+    <img src="https://raw.githubusercontent.com/zainalwan/hugebrain/master/assets/img/logo.png">
+</p>
 
 ## Table of Contents
 * [Table of Contents](#table-of-contents)
@@ -34,22 +36,29 @@ Without any argument given, the software will display the list of your contacts.
 ```
     $ hugebrain
 ```
+### Adding Data(s)
 You could add a data by run this command.
 ```
     $ hugebrain --add --name="Zain" --phone="+44 724 649 1123" 
     --email="zainalwan4@gmail.com"
 ```
 ![Adding data](assets/img/add.gif)
+
+### Editing Data(s)
 To edit an data, do this.
 ```
     $ hugebrain --edit --id=3 --name="John Doe" 
 ```
 ![Editing data](assets/img/edit.gif)
+
+### Searching Data(s)
 To search datas, do this.
 ```
     $ hugebrain --search --name="parker"
 ```
 ![Searching data](assets/img/search.gif)
+
+### Deleting Data(s)
 To delete data, do this.
 ```
     $ hugebrain --delete --id=2
