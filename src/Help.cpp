@@ -2,7 +2,7 @@
 
 int HugeBrain::Help::showMessage()
 {
-    std::cout << "Huge Brain is a contact software. It used to store some datas about the people\n";
+    std::cout << "Huge Brain is a contact software. It used to store some data about the people\n";
     std::cout << "you know, including their name, phone, and email.\n\n";
     std::cout << "Copyright 2021 by Zain Alwan Wima Irfani.\n\n";
     std::cout << "Usage: hugebrain <arguments>\n\n";

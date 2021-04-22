@@ -14,17 +14,17 @@ HugeBrain::Database::Database(const std::string &file_name)
     if(!boost::filesystem::exists(directory_path))
     {
         boost::filesystem::create_directory(directory_path);
-        boost::filesystem::ofstream people_datas_file(file_path, std::ios::out |
+        boost::filesystem::ofstream people_data_file(file_path, std::ios::out |
             std::ios::binary);
-        people_datas_file.close();
+        people_data_file.close();
     }
     else if(boost::filesystem::exists(directory_path)
         && boost::filesystem::is_directory(directory_path)
         && !boost::filesystem::exists(file_path))
     {
-        boost::filesystem::ofstream people_datas_file(file_path, std::ios::out
+        boost::filesystem::ofstream people_data_file(file_path, std::ios::out
             | std::ios::binary);
-        people_datas_file.close();
+        people_data_file.close();
     }
 }
 
@@ -36,12 +36,12 @@ std::vector<HugeBrain::Person> HugeBrain::Database::getAll()
 std::vector<HugeBrain::Person> HugeBrain::Database::readFile()
 {
     boost::filesystem::path file_path(filePathString);
-    boost::filesystem::ifstream people_datas_file(file_path);
+    boost::filesystem::ifstream people_data_file(file_path);
 
     std::string temp_string;
     HugeBrain::Person person;
     std::vector<HugeBrain::Person> people;
-    while(std::getline(people_datas_file, temp_string))
+    while(std::getline(people_data_file, temp_string))
     {
         person.id = std::stol(temp_string.substr(0, temp_string.find(',')));
         temp_string = temp_string.substr(temp_string.find(',') + 2);
@@ -52,7 +52,7 @@ std::vector<HugeBrain::Person> HugeBrain::Database::readFile()
         person.email = temp_string;
         people.push_back(person);
     }
-    people_datas_file.close();
+    people_data_file.close();
 
     return people;
 }
@@ -61,19 +61,19 @@ void HugeBrain::Database::writeFile(const std::vector<HugeBrain::Person>
     &people)
 {
     boost::filesystem::path file_path(filePathString);
-    boost::filesystem::ofstream people_datas_file(file_path);
+    boost::filesystem::ofstream people_data_file(file_path);
     for(long i = 0; i < people.size(); i++)
     {
-        people_datas_file << people.at(i).id << ", ";
-        people_datas_file << people.at(i).name << ", ";
-        people_datas_file << people.at(i).phone << ", ";
-        people_datas_file << people.at(i).email;
+        people_data_file << people.at(i).id << ", ";
+        people_data_file << people.at(i).name << ", ";
+        people_data_file << people.at(i).phone << ", ";
+        people_data_file << people.at(i).email;
         if(i < people.size() - 1)
         {
-            people_datas_file << '\n';
+            people_data_file << '\n';
         }
     }
-    people_datas_file.close();
+    people_data_file.close();
 }
 
 std::vector<HugeBrain::Person> HugeBrain::Database::add(HugeBrain::Person
@@ -92,7 +92,7 @@ std::vector<HugeBrain::Person> HugeBrain::Database::add(HugeBrain::Person
     people.push_back(new_person);
     writeFile(people);
 
-    std::cout << new_person.name << "'s datas was successfully saved.\n\n";
+    std::cout << new_person.name << "'s data was successfully saved.\n\n";
 
     return people;
 }
@@ -138,7 +138,7 @@ std::vector<HugeBrain::Person> HugeBrain::Database::update(HugeBrain::Person
 
     if(person_is_found)
     {
-        std::cout << new_person.name << "'s datas was successfully updated.\n\n";
+        std::cout << new_person.name << "'s data was successfully updated.\n\n";
     }
     else
     {
@@ -174,7 +174,7 @@ std::vector<HugeBrain::Person> HugeBrain::Database::remove(HugeBrain::Person
 
     if(person_is_found)
     {
-        std::cout << targeted_person.name << "'s datas was successfully deleted.\n\n";
+        std::cout << targeted_person.name << "'s data was successfully deleted.\n\n";
     }
     else
     {
