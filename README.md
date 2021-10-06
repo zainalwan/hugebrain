@@ -9,7 +9,7 @@
 * [Usage](#usage)
 
 ## Introduction
-HugeBrain is a contact software. It can be used to store some data about the people
+Huge Brain is a contact software. It can be used to store some data about the people
 you know, including their name, phone, and email.
 
 ## Installation
@@ -36,7 +36,7 @@ Without any argument given, the software will display the list of your contacts.
 ```
     $ hugebrain
 ```
-### Adding Data(s)
+### Adding Data
 You could add a data by run this command.
 ```
     $ hugebrain --add --name="Zain" --phone="+44 724 649 1123" 
@@ -44,21 +44,21 @@ You could add a data by run this command.
 ```
 ![Adding data](assets/img/add.gif)
 
-### Editing Data(s)
+### Editing Data
 To edit an data, do this.
 ```
     $ hugebrain --edit --id=3 --name="John Doe" 
 ```
 ![Editing data](assets/img/edit.gif)
 
-### Searching Data(s)
+### Searching Data
 To search data, do this.
 ```
     $ hugebrain --search --name="parker"
 ```
 ![Searching data](assets/img/search.gif)
 
-### Deleting Data(s)
+### Deleting Data
 To delete data, do this.
 ```
     $ hugebrain --delete --id=2
