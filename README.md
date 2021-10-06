@@ -9,7 +9,7 @@
 * [Usage](#usage)
 
 ## Introduction
-Huge Brain is a contact software. It used to store some data about the people
+HugeBrain is a contact software. It used to store some data about the people
 you know, including their name, phone, and email.
 
 ## Installation
